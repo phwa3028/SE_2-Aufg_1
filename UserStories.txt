@@ -1,0 +1,5 @@
+Als Benutzer möchte ich Telefonnummern eintragen können.
+Als Benutzer möchte ich Einträge lesen können.
+Als Benutzer möchte ich nach Einträgen suchen können.
+Als Benutzer möchte ich Einträge speichern können.
+Als Benutzer möchte ich, dass beim Start des Programms die Einträge automatisch geladen werden.
