@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -15,8 +16,9 @@ public class Main extends Application {
         TelefonBook telefonBook = new TelefonBook();
 
         EntryArea entryArea = new EntryArea(telefonBook.getTelefonEntries());
-        SearchArea searchArea = new SearchArea(telefonBook.getTelefonEntries(), entryArea);
+        SearchArea searchArea = new SearchArea(telefonBook.getTelefonEntries(), entryArea, telefonBook);
         DeleteArea deleteArea = new DeleteArea(telefonBook.getTelefonEntries(), entryArea, telefonBook);
+
 
         root.setTop(searchArea.getPane());
         root.setBottom(deleteArea.getPane());

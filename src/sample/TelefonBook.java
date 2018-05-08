@@ -34,4 +34,21 @@ public class TelefonBook {
         telefonEntries.remove(telefonEntry);
     }
 
+    public void LoadNewBook(){
+        telefonEntries.clear();
+        telefonEntries.addAll(StreamHandler.read());
+    }
+    public void addOtherBook(){
+        if(StreamHandler.bookToRead == 0){
+            StreamHandler.bookToRead = 1;
+            telefonEntries.addAll(StreamHandler.read());
+            StreamHandler.bookToRead = 0;
+        }
+        if(StreamHandler.bookToRead == 1){
+            StreamHandler.bookToRead = 0;
+            telefonEntries.addAll(StreamHandler.read());
+            StreamHandler.bookToRead = 1;
+        }
+    }
+
 }

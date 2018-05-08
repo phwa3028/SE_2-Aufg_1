@@ -15,10 +15,14 @@ public class SearchArea {
     private final AnchorPane pane = new AnchorPane();
     private final Button button = new Button("Search");
     private final TextField textField = new TextField();
+    private final MenuUnit menuUnit;
 
-    public SearchArea(ObservableList<TelefonEntry> telefonEntries, EntryArea entryArea){
+    public SearchArea(ObservableList<TelefonEntry> telefonEntries, EntryArea entryArea, TelefonBook telefonBook){
+        menuUnit = new MenuUnit(telefonBook);
+        AnchorPane.setTopAnchor(menuUnit.getPane(), 0.0);
+
         AnchorPane.setLeftAnchor(textField, 10.0);
-        AnchorPane.setTopAnchor(textField, 10.0);
+        AnchorPane.setTopAnchor(textField, 30.0);
         AnchorPane.setBottomAnchor(textField, 10.0);
         AnchorPane.setRightAnchor(textField, 90.0);
 
@@ -44,7 +48,7 @@ public class SearchArea {
             }
         });
 
-        pane.getChildren().addAll(textField, button);
+        pane.getChildren().addAll(textField, button, menuUnit.getPane());
     }
     public Node getPane(){
         return pane;

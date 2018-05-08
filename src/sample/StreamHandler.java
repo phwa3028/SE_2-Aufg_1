@@ -8,7 +8,8 @@ import java.util.List;
 
 public class StreamHandler {
 
-    private static String address = "ExportableTelefonBook";
+    private static String[] address = {"ExportableTelefonBook", "ExportableTelefonBook2"};
+    public static int bookToRead = 0;
 
     /**
      * Writes the Content of a Telefonbook into an external file.
@@ -16,7 +17,7 @@ public class StreamHandler {
      * @throws IOException
      */
     public static void write(TelefonBook telefonBook)throws IOException{
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(address));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(address[bookToRead]));
 
         List<TelefonEntry> entries = telefonBook.getTelefonEntries();
         Iterator<TelefonEntry> telefonEntryIterator = entries.iterator();
@@ -35,7 +36,7 @@ public class StreamHandler {
     public  static List<TelefonEntry> read(){
         List<TelefonEntry> list = new ArrayList<>();
         try{
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(address));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(address[bookToRead]));
             boolean nextLine = true;
             while(nextLine){
                 String s = bufferedReader.readLine();
